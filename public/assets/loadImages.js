@@ -1,22 +1,44 @@
 loadImages();
 
+function attachLazyLoads() {
+  // // get our list of images
+  // const imageSet = document.querySelectorAll('.lazy-image')
 
-// function attachLazyImages() {
-//   const lazyImages = document.querySelectorAll(".lazy-image");
+  // // create our image-visibility tracking event listener
+  // // to do this, we create an "IntersectionObserver" object,
+  // // and we attach an 'observe' method for each of the images
+  // // 
+  // const observer = new IntersectionObserver(imageIntersectionFn);
+  // imageSet.forEach(function (image) { observer.observe(image) });
 
-//   function onIntersection(imageEntities) {
-//     imageEntities.forEach(image => {
-//       if (image.isIntersecting) {
-//         observer.unobserve(image.target);
-//         image.target.src = image.target.dataset.src;
-//       }
-//     });
-//   }
-
-//   const observer = new IntersectionObserver(onIntersection);
-
-//   lazyImages.forEach(image => observer.observe(image));
-// }
+  // function imageIntersectionFn(imageData) {
+  //   // an array of which images have been affected by this change in 
+  //   // visibility event are passed in, usually it's just 1:
+  //   console.log(`imageData`, imageData)
+  //   // the passed in data is like this:
+  //   // 0: { boundingClientRect: {x: 96, y: -1167, width: 200, height: 4020, top: -1167.28125, …}
+  //   //      intersectionRatio: 0.0030423167627304792
+  //   //      intersectionRect: {x: 96, y: 742, width: 200, height: 12, top: 742.3125, …}
+  //   //      isIntersecting: true
+  //   //      isVisible: false
+  //   //      target: { .. element .. }
+  //   //    }
+  //   imageData.forEach(
+  //     function (image) {
+  //       console.log(`[imageIntersectionFn] called for ${image.target.dataset.src}`)
+  //       // check if the image is "visible"
+  //       if (image.isIntersecting) {
+  //         // stops listening for a change in image visibility
+  //         observer.unobserve(image.target)
+  //         // switches the IMG tag to load the image url
+  //         // <IMG data-url="111" data-src="222" />
+  //         // --> event.dataset = { url: "111", src="222" }
+  //         image.target.src = image.target.dataset.src
+  //       }
+  //     }
+  //   )
+  // }
+}
 
 async function loadImages() {
   const imageList = await fetch("/images.json").then(res => res.json())
@@ -49,5 +71,6 @@ async function loadImages() {
   })
 
   // now add the lazy load capability to each of these IMG tags...
+  attachLazyLoads()
 }
 
