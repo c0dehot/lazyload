@@ -1,17 +1,12 @@
 {
-  "name": "images-demo",
+  "name": "lazyload",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "seed": "node seeders/seed.js"
-  },
+  "main": "server.js",
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "compression": "^1.7.4",
     "express": "^4.16.4",
-    "glob": "^7.1.4",
-    "mongoose": "^5.5.8"
   }
 }
